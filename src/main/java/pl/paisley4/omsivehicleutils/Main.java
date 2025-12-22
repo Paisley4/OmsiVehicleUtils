@@ -2,12 +2,11 @@ package pl.paisley4.omsivehicleutils;
 
 import com.ibm.icu.text.CharsetDetector;
 import com.ibm.icu.text.CharsetMatch;
+import pl.paisley4.omsivehicleutils.attributes.CTCTexture;
 import pl.paisley4.omsivehicleutils.attributes.Mesh;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,12 +41,15 @@ public class Main {
             }
         }
 
-        List<Object> textures = ConfigUtils.readTextTextures(lines);
+        List<CTCTexture> ctcTextures = ConfigUtils.readCTCTextures(lines);
+
+        List<Object> textTextures = ConfigUtils.readTextTextures(lines);
 
         List<Mesh> meshes = ConfigUtils.readMeshes(lines);
 
-        System.out.println(textures.size());
-        System.out.println(meshes.size());
+        System.out.println("CTC Textures: " + ctcTextures.size());
+        System.out.println("Text Textures: " + textTextures.size());
+        System.out.println("Meshes: " + meshes.size());
     }
 
 }

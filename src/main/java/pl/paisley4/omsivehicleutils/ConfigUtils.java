@@ -1,9 +1,6 @@
 package pl.paisley4.omsivehicleutils;
 
-import pl.paisley4.omsivehicleutils.attributes.Matl;
-import pl.paisley4.omsivehicleutils.attributes.Mesh;
-import pl.paisley4.omsivehicleutils.attributes.TextTexture;
-import pl.paisley4.omsivehicleutils.attributes.TextTextureEnhanced;
+import pl.paisley4.omsivehicleutils.attributes.*;
 import pl.paisley4.omsivehicleutils.objects.Pair;
 import pl.paisley4.omsivehicleutils.objects.TripleStruct;
 
@@ -11,6 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConfigUtils {
+
+    public static List<CTCTexture> readCTCTextures(List<String> lines) {
+        List<CTCTexture> ctcTextures = new ArrayList<>();
+
+        for(int i = 0; i < lines.size(); i++){
+            if(lines.get(i).startsWith("[CTCTexture]")){
+                CTCTexture ctcTexture = new CTCTexture(lines.get(i + 1), lines.get(i + 2));
+                ctcTextures.add(ctcTexture);
+                i += 2;
+            }
+        }
+
+        return ctcTextures;
+    }
 
     public static List<Object> readTextTextures(List<String> lines) {
 
@@ -33,6 +44,7 @@ public class ConfigUtils {
                 textTexture.setColorB(Integer.parseInt(lines.get(i + 8)));
 
                 textures.add(textTexture);
+                i += 10;
                 continue;
             }
             if(lines.get(i).toLowerCase().startsWith("[texttexture_enh]")){
@@ -53,6 +65,7 @@ public class ConfigUtils {
                 textTexture.setGrid(Integer.parseInt(lines.get(i + 10)));
 
                 textures.add(textTexture);
+                i += 8;
                 continue;
             }
         }
@@ -72,7 +85,6 @@ public class ConfigUtils {
                 i = mesh.getEndsAt();
             }
         }
-        // TODO: All the logic to read meshes.
 
         return meshes;
     }
