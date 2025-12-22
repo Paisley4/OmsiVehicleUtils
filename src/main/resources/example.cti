@@ -1,0 +1,985 @@
+***************************************
+MZK Zywiec #407 by K7A
+***************************************
+
+[item]
+MZK Zywiec #407 by K7A
+repaint_body
+MZK Zywiec 407\407_2.png
+
+[item]
+MZK Zywiec #407 by K7A
+repaint_rejka
+MZK Zywiec 407\Urbino_Rejestracja.png
+
+[item]
+MZK Zywiec #407 by K7A
+repaint_szyby_zew
+MZK Zywiec 407\407_zew_2.png
+
+[item]
+MZK Zywiec #407 by K7A
+repaint_szyby_wewn
+MZK Zywiec 407\407_wew_2.png
+
+[item]
+MZK Zywiec #407 by K7A
+repaint_tapicerka
+MZK Zywiec 407\tapicerka.png
+
+[item]
+MZK Zywiec #407 by K7A
+repaint_rurki
+MZK Zywiec 407\407_rurki.png
+
+***********************************
+
+setvar okna w szybach
+0 - cala szyba // full window
+1 - okno przesuwne typ 1 (prostokatne) // sliding window type 1
+2 - okno przesuwne typ 2 (prostokatne duze)// sliding window type 2
+3 - okno przesuwne typ 3 (okragle)// sliding window type 3
+4 - okno lufcik // tilt window
+
+[setvar]
+szyba_lewa_1
+2
+
+[setvar]
+szyba_lewa_2
+2
+
+[setvar]
+szyba_lewa_3
+2
+
+[setvar]
+szyba_lewa_4
+2
+
+[setvar]
+szyba_lewa_5
+0
+
+[setvar]
+szyba_prawa_1
+2
+
+[setvar]
+szyba_prawa_2
+2
+
+[setvar]
+szyba_prawa_3
+2
+
+[setvar]
+szyba_prawa_4
+0
+
+*******
+only 2 doors
+
+[setvar]
+szyba_prawa_5
+0
+
+***********************************
+boki karoserii przy dachu // body type
+TYLKO FL // ONLY FL
+
+0 - stare // old
+1 - nowe // new
+
+[setvar]
+karo_boki_new
+0
+
+***********************************
+moc silnika // engine power
+
+DAF:
+0 - 280KM
+1 - 340KM
+2 - 370KM
+
+Cummins:
+0 - 280KM
+1 - 250KM
+2 - 300KM
+
+[setvar]
+moc_silnika
+2
+
+***********************************
+typ mostu // drive axle type (only preFL
+
+0 - typ 1 // type 1      2016/17
+1 - typ 2 // type 2      2017+
+
+[setvar]
+most_typ
+0
+
+***********************************
+umiejscowienie wydechu // the location of the exhaust
+0 - w obudowie // in the body
+1 - nad obudowa // over the body
+
+[setvar]
+komin_typ
+0
+
+***********************************
+przycisk od zbiorczego otwierania // button for collective door opening
+0 - brak przycisku // no button
+1 - przycisk prostokatny // rectangular button
+2 - przycisk okragly przy przyciskach do drzwi // round button
+
+[setvar]
+zbiorczy_drzwi_typ
+1
+
+***********************************
+typy drzwi // door types
+0 - bode
+1 - rawag
+2 - ventury IST
+3 - ventury -> IST, SST, IST
+4 - ventury -> IST, SST, SST (only 3 doors)
+
+[setvar]
+drzwi_typ
+1
+
+***********************************
+szyberdachy // sunroofs
+0 - sa // active
+1 - brak // inactive
+
+[setvar]
+szyberdachy
+0
+
+***********************************
+przednia szyba // front glass
+0 - cala // the whole glass
+1 - podzielona // split glass
+
+[setvar]
+szyba_przod_typ
+0
+
+***********************************
+alarmy w drzwiach // door alarms
+0 - brak // inactive
+1 - sa // active
+
+[setvar]
+alarm_wtrakcie_otwierania
+1
+
+[setvar]
+alarm_wtrakcie_zamykania
+0
+
+[setvar]
+alarm_przed_zamknieciem
+1
+
+***********************************
+alarm bez dzwieku // soundless alarm
+0 - jest dzwiek // active sound
+1 - brak dzwieku// inactive sound
+
+[setvar]
+bez_sygnalu_ostrzegawczego_drzwi
+0
+
+***********************************
+fotokomorka w drzwiach // photocell in the doors
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+fotokomorka
+0
+
+***********************************
+kabina // cabin
+0 - mala // small
+1 - duza // big
+
+[setvar]
+kabina_typ
+0
+
+***********************************
+zabudowa malej kabiny // small cabin building
+0 - jest // active
+1 - brak // inactive
+Uwaga! Ustawiając kabina_typ na 1 nie trzeba pozostałych ustawiać na 1!
+Attention! By setting cabin_type to 1, you don't need to set the others to 1!
+
+[setvar]
+kab_mala_zab
+0
+
+[setvar]
+kab_mala_zab_drzwi_szyba
+0
+
+####
+0 - typ 1 // type 1
+1 - brak // inactive
+2 - typ 2 // type 2
+
+[setvar]
+kab_mala_rurkadrzwi
+2
+
+***********************************
+wyswietlacze // display
+
+0 - maly // small
+1 - duzy // big
+
+[setvar]
+wyswietlacz_tyl
+0
+
+*******
+0 - maly // small
+1 - duzy // big
+
+[setvar]
+wyswietlacz_bok_drzwi
+0
+
+*******
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+wyswietlacz_bok_kier
+0
+
+*******
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+wyswietlacz_slepak
+0
+
+***********************************
+typy lusterka // exterior mirror types
+
+0 - male // small
+1 - duze typ 1 // big type 1
+2 - duze typ 2 // big type 2
+
+[setvar]
+lusterko_zew_typ
+2
+
+***********************************
+typy lusterka // interior mirror types
+
+0 - male // small
+1 - male 2x // 2x small
+2 - duze // big
+
+
+[setvar]
+lusterko_wewn_typ
+1
+
+***********************************
+oswietlenie zewnetrzne drzwi // exterior door lighting
+
+0 - brak // inactive
+1 - duze // big
+2 - male // small
+
+[setvar]
+osw_zew_drzwi_1
+2
+
+[setvar]
+osw_zew_drzwi_2
+2
+
+[setvar]
+osw_zew_drzwi_3
+2
+
+***********************************
+siedzenia // seats
+
+0 - Ster8
+1 - Ster6
+2 - SKA
+3 - MX Alu
+4 - Kiel
+
+[setvar]
+siedzenia_typ
+0
+
+***********************************
+kola // wheels
+
+0 - felga podstawowa
+1 - kolpaki typ 1
+2 - felga alcoa
+3 - kolpaki typ 2
+
+[setvar]
+kola_typ
+0
+
+***********************************
+doswietlanie zakretow // cornering light
+
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+doswietlenie_zakr
+1
+
+***********************************
+przeciwmglowe przod
+
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+przeciwmglowe_przod
+1
+
+***********************************
+kasowniki // ticket validators
+
+0 - brak // inactive
+1 - pixel // type 1
+2 - krg6 // type 2
+3 - krg8 // type 3
+
+[setvar]
+kasowniki_typ
+1
+
+***********************************
+wloty klimy // air conditioning inlets
+
+0 - typ 1 (dlugie prostokatne) // type 1
+1 - typ 2 (dlugie zaokraglone) // type 2
+2 - typ 3 (krotkie prostokatne) // type 3
+3 - typ 4 (jedno na  srodku) // type 4
+
+[setvar]
+klima_typ
+1
+
+***********************************
+przystankowy // auxiliary brake
+
+0 - brak // inactive
+1 - typ 1 - przycisk // type 1
+2 - typ 2 - grzybek // type 2
+
+[setvar]
+przystankowy_typ
+2
+
+***********************************
+biegi 1, 2 i 3 na selektorze // gears 1, 2, 3 on the gearbox selector
+
+0 - jest // active
+1 - brak // inactive
+
+[setvar]
+selektor_123
+1
+
+***********************************
+selektor // gearbox selector
+
+0 - voith
+1 - zf
+
+[setvar]
+selektor_typ
+1
+
+***********************************
+wewnetrzny monitor // LCD display inside
+
+0 - jest // active
+1 - brak // inactive
+
+[setvar]
+monitor
+0
+
+***********************************
+oznaczenia solarisa na karoserii (naklejki) // solaris markings on the body (stickers)
+
+0 - sa // active
+1 - brak // inactive
+
+[setvar]
+oznaczenia
+0
+
+***********************************
+napis urbino 12 z boku pojazdu // the inscription urbino 12 on the side of the vehicle
+
+0 - jest // active
+1 - brak // inactive
+
+[setvar]
+logo_napis_bok
+0
+
+***********************************
+wciecia w drzwiach // notches in the door
+
+0 - brak // inactive
+1 - wciete // type 1
+2 - okragle // type 2
+
+[setvar]
+podloga_drzwi
+0
+
+***********************************
+szczotki w nadkolach // brushes in wheel arches
+
+0 - sa // active
+1 - brak // inactive
+
+[setvar]
+szczotka_przod
+0
+
+[setvar]
+szczotka_tyl
+0
+
+***********************************
+migotanie przyciskow od otwierania
+drzwi po wcisnieciu STOP na wozie
+
+0 - jest // active
+1 - brak // inactive
+
+[setvar]
+bez_migania_przyciskow_drzwi
+0
+
+***********************************
+font na wyswietlaczach // font on the displays
+
+0 - pixel
+1 - rg
+
+[setvar]
+matrix_font
+0
+
+***************************************
+MZK Zywiec #407 rekl Krupa
+***************************************
+
+[item]
+MZK Zywiec #407 rekl Krupa
+repaint_body
+MZK Zywiec 407\407.png
+
+[item]
+MZK Zywiec #407 rekl Krupa
+repaint_rejka
+MZK Zywiec 407\Urbino_Rejestracja.png
+
+[item]
+MZK Zywiec #407 rekl Krupa
+repaint_szyby_zew
+MZK Zywiec 407\407_zew.png
+
+[item]
+MZK Zywiec #407 rekl Krupa
+repaint_szyby_wewn
+MZK Zywiec 407\407_wew.png
+
+[item]
+MZK Zywiec #407 rekl Krupa
+repaint_tapicerka
+MZK Zywiec 407\tapicerka.png
+
+[item]
+MZK Zywiec #407 rekl Krupa
+repaint_rurki
+MZK Zywiec 407\407_rurki.png
+
+***********************************
+
+setvar okna w szybach
+0 - cala szyba // full window
+1 - okno przesuwne typ 1 (prostokatne) // sliding window type 1
+2 - okno przesuwne typ 2 (prostokatne duze)// sliding window type 2
+3 - okno przesuwne typ 3 (okragle)// sliding window type 3
+4 - okno lufcik // tilt window
+
+[setvar]
+szyba_lewa_1
+2
+
+[setvar]
+szyba_lewa_2
+2
+
+[setvar]
+szyba_lewa_3
+2
+
+[setvar]
+szyba_lewa_4
+2
+
+[setvar]
+szyba_lewa_5
+0
+
+[setvar]
+szyba_prawa_1
+2
+
+[setvar]
+szyba_prawa_2
+2
+
+[setvar]
+szyba_prawa_3
+2
+
+[setvar]
+szyba_prawa_4
+0
+
+*******
+only 2 doors
+
+[setvar]
+szyba_prawa_5
+0
+
+***********************************
+boki karoserii przy dachu // body type
+TYLKO FL // ONLY FL
+
+0 - stare // old
+1 - nowe // new
+
+[setvar]
+karo_boki_new
+0
+
+***********************************
+moc silnika // engine power
+
+DAF:
+0 - 280KM
+1 - 340KM
+2 - 370KM
+
+Cummins:
+0 - 280KM
+1 - 250KM
+2 - 300KM
+
+[setvar]
+moc_silnika
+2
+
+***********************************
+typ mostu // drive axle type (only preFL
+
+0 - typ 1 // type 1      2016/17
+1 - typ 2 // type 2      2017+
+
+[setvar]
+most_typ
+0
+
+***********************************
+umiejscowienie wydechu // the location of the exhaust
+0 - w obudowie // in the body
+1 - nad obudowa // over the body
+
+[setvar]
+komin_typ
+0
+
+***********************************
+przycisk od zbiorczego otwierania // button for collective door opening
+0 - brak przycisku // no button
+1 - przycisk prostokatny // rectangular button
+2 - przycisk okragly przy przyciskach do drzwi // round button
+
+[setvar]
+zbiorczy_drzwi_typ
+1
+
+***********************************
+typy drzwi // door types
+0 - bode
+1 - rawag
+2 - ventury IST
+3 - ventury -> IST, SST, IST
+4 - ventury -> IST, SST, SST (only 3 doors)
+
+[setvar]
+drzwi_typ
+1
+
+***********************************
+szyberdachy // sunroofs
+0 - sa // active
+1 - brak // inactive
+
+[setvar]
+szyberdachy
+0
+
+***********************************
+przednia szyba // front glass
+0 - cala // the whole glass
+1 - podzielona // split glass
+
+[setvar]
+szyba_przod_typ
+0
+
+***********************************
+alarmy w drzwiach // door alarms
+0 - brak // inactive
+1 - sa // active
+
+[setvar]
+alarm_wtrakcie_otwierania
+1
+
+[setvar]
+alarm_wtrakcie_zamykania
+0
+
+[setvar]
+alarm_przed_zamknieciem
+1
+
+***********************************
+alarm bez dzwieku // soundless alarm
+0 - jest dzwiek // active sound
+1 - brak dzwieku// inactive sound
+
+[setvar]
+bez_sygnalu_ostrzegawczego_drzwi
+0
+
+***********************************
+fotokomorka w drzwiach // photocell in the doors
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+fotokomorka
+0
+
+***********************************
+kabina // cabin
+0 - mala // small
+1 - duza // big
+
+[setvar]
+kabina_typ
+0
+
+***********************************
+zabudowa malej kabiny // small cabin building
+0 - jest // active
+1 - brak // inactive
+Uwaga! Ustawiając kabina_typ na 1 nie trzeba pozostałych ustawiać na 1!
+Attention! By setting cabin_type to 1, you don't need to set the others to 1!
+
+[setvar]
+kab_mala_zab
+0
+
+[setvar]
+kab_mala_zab_drzwi_szyba
+0
+
+####
+0 - typ 1 // type 1
+1 - brak // inactive
+2 - typ 2 // type 2
+
+[setvar]
+kab_mala_rurkadrzwi
+2
+
+***********************************
+wyswietlacze // display
+
+0 - maly // small
+1 - duzy // big
+
+[setvar]
+wyswietlacz_tyl
+0
+
+*******
+0 - maly // small
+1 - duzy // big
+
+[setvar]
+wyswietlacz_bok_drzwi
+0
+
+*******
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+wyswietlacz_bok_kier
+1
+
+*******
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+wyswietlacz_slepak
+0
+
+***********************************
+typy lusterka // exterior mirror types
+
+0 - male // small
+1 - duze typ 1 // big type 1
+2 - duze typ 2 // big type 2
+
+[setvar]
+lusterko_zew_typ
+2
+
+***********************************
+typy lusterka // interior mirror types
+
+0 - male // small
+1 - male 2x // 2x small
+2 - duze // big
+
+
+[setvar]
+lusterko_wewn_typ
+1
+
+***********************************
+oswietlenie zewnetrzne drzwi // exterior door lighting
+
+0 - brak // inactive
+1 - duze // big
+2 - male // small
+
+[setvar]
+osw_zew_drzwi_1
+2
+
+[setvar]
+osw_zew_drzwi_2
+2
+
+[setvar]
+osw_zew_drzwi_3
+2
+
+***********************************
+siedzenia // seats
+
+0 - Ster8
+1 - Ster6
+2 - SKA
+3 - MX Alu
+4 - Kiel
+
+[setvar]
+siedzenia_typ
+0
+
+***********************************
+kola // wheels
+
+0 - felga podstawowa
+1 - kolpaki typ 1
+2 - felga alcoa
+3 - kolpaki typ 2
+
+[setvar]
+kola_typ
+0
+
+***********************************
+doswietlanie zakretow // cornering light
+
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+doswietlenie_zakr
+1
+
+***********************************
+przeciwmglowe przod
+
+0 - brak // inactive
+1 - jest // active
+
+[setvar]
+przeciwmglowe_przod
+1
+
+***********************************
+kasowniki // ticket validators
+
+0 - brak // inactive
+1 - pixel // type 1
+2 - krg6 // type 2
+3 - krg8 // type 3
+
+[setvar]
+kasowniki_typ
+1
+
+***********************************
+wloty klimy // air conditioning inlets
+
+0 - typ 1 (dlugie prostokatne) // type 1
+1 - typ 2 (dlugie zaokraglone) // type 2
+2 - typ 3 (krotkie prostokatne) // type 3
+3 - typ 4 (jedno na  srodku) // type 4
+
+[setvar]
+klima_typ
+1
+
+***********************************
+przystankowy // auxiliary brake
+
+0 - brak // inactive
+1 - typ 1 - przycisk // type 1
+2 - typ 2 - grzybek // type 2
+
+[setvar]
+przystankowy_typ
+2
+
+***********************************
+biegi 1, 2 i 3 na selektorze // gears 1, 2, 3 on the gearbox selector
+
+0 - jest // active
+1 - brak // inactive
+
+[setvar]
+selektor_123
+1
+
+***********************************
+selektor // gearbox selector
+
+0 - voith
+1 - zf
+
+[setvar]
+selektor_typ
+1
+
+***********************************
+wewnetrzny monitor // LCD display inside
+
+0 - jest // active
+1 - brak // inactive
+
+[setvar]
+monitor
+0
+
+***********************************
+oznaczenia solarisa na karoserii (naklejki) // solaris markings on the body (stickers)
+
+0 - sa // active
+1 - brak // inactive
+
+[setvar]
+oznaczenia
+0
+
+***********************************
+napis urbino 12 z boku pojazdu // the inscription urbino 12 on the side of the vehicle
+
+0 - jest // active
+1 - brak // inactive
+
+[setvar]
+logo_napis_bok
+0
+
+***********************************
+wciecia w drzwiach // notches in the door
+
+0 - brak // inactive
+1 - wciete // type 1
+2 - okragle // type 2
+
+[setvar]
+podloga_drzwi
+0
+
+***********************************
+szczotki w nadkolach // brushes in wheel arches
+
+0 - sa // active
+1 - brak // inactive
+
+[setvar]
+szczotka_przod
+0
+
+[setvar]
+szczotka_tyl
+0
+
+***********************************
+migotanie przyciskow od otwierania
+drzwi po wcisnieciu STOP na wozie
+
+0 - jest // active
+1 - brak // inactive
+
+[setvar]
+bez_migania_przyciskow_drzwi
+0
+
+***********************************
+font na wyswietlaczach // font on the displays
+
+0 - pixel
+1 - rg
+
+[setvar]
+matrix_font
+0
