@@ -115,6 +115,16 @@ public class ConfigUtils {
                 // TODO: Finish Animation class and write logic to read it.
                 continue;
             }
+            if(lines.get(i).toLowerCase().startsWith("[viewpoint]")){
+                mesh.setViewPoint(Integer.parseInt(lines.get(i + 1)));
+                i += 1;
+                continue;
+            }
+            if(lines.get(i).toLowerCase().startsWith("[visible]")){
+                mesh.setVisibility(new Pair<>(lines.get(i + 1), Integer.parseInt(lines.get(i + 2))));
+                i += 2;
+                continue;
+            }
             if(lines.get(i).toLowerCase().startsWith("[matl]")){
                 Pair<Integer, Matl> matl = readMatl(lines, i);
                 mesh.getMaterials().put(matl.getFirst(), matl.getSecond());
@@ -135,7 +145,7 @@ public class ConfigUtils {
                 lines.get(i).toLowerCase().startsWith("[mouseevent]") ||
                 lines.get(i).toLowerCase().startsWith("[newanim]") ||
                 lines.get(i).toLowerCase().startsWith("[viewpoint]") ||
-                lines.get(i).toLowerCase().startsWith("[visibility]")){
+                lines.get(i).toLowerCase().startsWith("[visible]")){
                 return new Pair<>(matlIndex, matl);
             }
             if(lines.get(i).startsWith("[matl_envmap]")){

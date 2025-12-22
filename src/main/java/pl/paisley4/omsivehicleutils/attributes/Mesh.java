@@ -2,16 +2,13 @@ package pl.paisley4.omsivehicleutils.attributes;
 
 import pl.paisley4.omsivehicleutils.objects.Pair;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class Mesh {
+public class Mesh implements Comparable<Mesh> {
 
     private int startsAt, endsAt;
     private String mesh;
-    private Pair<Integer, String> visibility;
+    private Pair<String, Integer> visibility;
     private int viewPoint;
     // Always expected only 4 values
     private List<Integer> illuminationInterior;
@@ -25,7 +22,7 @@ public class Mesh {
         this.animations = new ArrayList<>();
     }
 
-    public Mesh(int startsAt, int endsAt, String mesh, Pair<Integer, String> visibility,
+    public Mesh(int startsAt, int endsAt, String mesh, Pair<String, Integer> visibility,
                 int viewPoint, List<Integer> illuminationInterior, Map<Integer, Matl> materials,
                 String mouseEvent, List<Animation> animations) {
         this.startsAt = startsAt;
@@ -55,11 +52,11 @@ public class Mesh {
         this.endsAt = endsAt;
     }
 
-    public Pair<Integer, String> getVisibility() {
+    public Pair<String, Integer> getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(Pair<Integer, String> visibility) {
+    public void setVisibility(Pair<String, Integer> visibility) {
         this.visibility = visibility;
     }
 
@@ -109,5 +106,10 @@ public class Mesh {
 
     public void setAnimations(List<Animation> animations) {
         this.animations = animations;
+    }
+
+    @Override
+    public int compareTo(Mesh o) {
+        return Comparator.comparingInt(Mesh::getStartsAt).compare(this, o);
     }
 }

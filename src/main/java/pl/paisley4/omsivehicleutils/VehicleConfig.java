@@ -15,6 +15,7 @@ import java.util.List;
 public class VehicleConfig {
 
     private Path path;
+    private String coding;
     private List<String> lines;
     private List<CTCTexture> ctcTextures;
     private List<Object> textTextures;
@@ -58,6 +59,7 @@ public class VehicleConfig {
             detector.setText(bytes);
 
             CharsetMatch match = detector.detect();
+            this.coding = match.getName();
 
             String[] encoded = match.getString().split("\n");
             // Clear all \r characters from the file.
@@ -72,6 +74,18 @@ public class VehicleConfig {
         this.ctcTextures = ConfigUtils.readCTCTextures(lines);
         this.textTextures = ConfigUtils.readTextTextures(lines);
         this.meshes = ConfigUtils.readMeshes(lines);
+    }
+
+    public List<String> getLines() {
+        return lines;
+    }
+
+    public String getCoding() {
+        return coding;
+    }
+
+    public void setLines(List<String> lines) {
+        this.lines = lines;
     }
 
     public List<CTCTexture> getCtcTextures() {
