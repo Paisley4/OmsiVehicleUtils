@@ -3,23 +3,62 @@ package pl.paisley4.omsivehicleutils.ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import pl.paisley4.omsivehicleutils.VehicleCTI;
+import pl.paisley4.omsivehicleutils.VehicleConfig;
+import pl.paisley4.omsivehicleutils.VehicleUtils;
+
+import java.io.File;
 
 public class MainController {
 
-    @FXML
-    private Label testlabel;
+    @FXML private Button processButton;
+    @FXML private Button cfgSelectButton;
+    @FXML private Button ctiSelectButton;
 
-    @FXML
-    private Button testbutton;
+    @FXML private TextField cfgPath;
+    @FXML private TextField ctiPath;
+
+    @FXML private Label alertLabel;
 
     @FXML
     public void initialize() {
-        this.testbutton.setOnAction(e -> {
-            if(testlabel.getText().equalsIgnoreCase("Hello World")){
-                testlabel.setText("Hello OMSI");
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Select file");
+        fc.setInitialDirectory(new File("."));
+
+        this.cfgSelectButton.setOnAction(e -> {
+            fc.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Config files (*.cfg)", "*.cfg"));
+            cfgPath.setText(fc.showOpenDialog(null).getAbsolutePath());
+        });
+        this.ctiSelectButton.setOnAction(e -> {
+            fc.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("CTI files (*.cti)", "*.cti"));
+            ctiPath.setText(fc.showOpenDialog(null).getAbsolutePath());
+        });
+
+        this.processButton.setOnAction(e -> {
+            File cfgFile = new File(cfgPath.getText());
+            File ctiFile = new File(ctiPath.getText());
+
+            if(!cfgFile.exists()){
+                alertLabel.setText("Config file not found!");
                 return;
             }
-            testlabel.setText("Hello World");
+
+            if(!ctiFile.exists()){
+                alertLabel.setText("CTI file not found!");
+                return;
+            }
+
+            VehicleConfig config = new VehicleConfig();
+            config.read(cfgFile);
+
+            VehicleCTI cti = new VehicleCTI();
+            cti.read(ctiFile);
+
+            VehicleUtils.removeUselessMeshes(config, cti);
+            alertLabel.setText("Done!");
         });
     }
 
