@@ -1,5 +1,7 @@
 plugins {
     id("java")
+    application
+    id("org.openjfx.javafxplugin") version "0.1.0"
 }
 
 group = "pl.paisley4.omsivehicleutils"
@@ -7,6 +9,11 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+javafx {
+    version = "21"
+    modules = listOf("javafx.controls", "javafx.fxml")
 }
 
 dependencies {
@@ -21,4 +28,8 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+application {
+    mainClass.set("pl.paisley4.omsivehicleutils.Main")
 }
