@@ -1,5 +1,7 @@
 package pl.paisley4.omsivehicleutils.attributes;
 
+import pl.paisley4.omsivehicleutils.objects.Pair;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,31 +11,32 @@ public class Mesh {
 
     private int startsAt, endsAt;
     private String mesh;
-    private String visibilityVariable;
-    private int visibilityValue;
+    private Pair<Integer, String> visibility;
     private int viewPoint;
     // Always expected only 4 values
     private List<Integer> illuminationInterior;
     private Map<Integer, Matl> materials;
     private String mouseEvent;
-    private Animation animation;
+    private List<Animation> animations;
 
     public Mesh() {
         this.illuminationInterior = new ArrayList<>();
         this.materials = new HashMap<>();
+        this.animations = new ArrayList<>();
     }
 
-    public Mesh(int startsAt, int endsAt, String mesh, String visibilityVariable,
-                int visibilityValue, int viewPoint, List<Integer> illuminationInterior,
-                Map<Integer, Matl> materials) {
+    public Mesh(int startsAt, int endsAt, String mesh, Pair<Integer, String> visibility,
+                int viewPoint, List<Integer> illuminationInterior, Map<Integer, Matl> materials,
+                String mouseEvent, List<Animation> animations) {
         this.startsAt = startsAt;
         this.endsAt = endsAt;
         this.mesh = mesh;
-        this.visibilityVariable = visibilityVariable;
-        this.visibilityValue = visibilityValue;
+        this.visibility = visibility;
         this.viewPoint = viewPoint;
         this.illuminationInterior = illuminationInterior;
         this.materials = materials;
+        this.mouseEvent = mouseEvent;
+        this.animations = animations;
     }
 
     public int getStartsAt() {
@@ -52,20 +55,12 @@ public class Mesh {
         this.endsAt = endsAt;
     }
 
-    public String getVisibilityVariable() {
-        return visibilityVariable;
+    public Pair<Integer, String> getVisibility() {
+        return visibility;
     }
 
-    public void setVisibilityVariable(String visibilityVariable) {
-        this.visibilityVariable = visibilityVariable;
-    }
-
-    public int getVisibilityValue() {
-        return visibilityValue;
-    }
-
-    public void setVisibilityValue(int visibilityValue) {
-        this.visibilityValue = visibilityValue;
+    public void setVisibility(Pair<Integer, String> visibility) {
+        this.visibility = visibility;
     }
 
     public String getMesh() {
@@ -98,5 +93,21 @@ public class Mesh {
 
     public void setMaterials(Map<Integer, Matl> materials) {
         this.materials = materials;
+    }
+
+    public String getMouseEvent() {
+        return mouseEvent;
+    }
+
+    public void setMouseEvent(String mouseEvent) {
+        this.mouseEvent = mouseEvent;
+    }
+
+    public List<Animation> getAnimations() {
+        return animations;
+    }
+
+    public void setAnimations(List<Animation> animations) {
+        this.animations = animations;
     }
 }

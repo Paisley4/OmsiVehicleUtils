@@ -2,6 +2,7 @@ package pl.paisley4.omsivehicleutils;
 
 import com.ibm.icu.text.CharsetDetector;
 import com.ibm.icu.text.CharsetMatch;
+import pl.paisley4.omsivehicleutils.attributes.Mesh;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -43,7 +44,10 @@ public class Main {
 
         List<Object> textures = ConfigUtils.readTextTextures(lines);
 
+        List<Mesh> meshes = ConfigUtils.readMeshes(lines);
+
         System.out.println(textures.size());
+        System.out.println(meshes.size());
     }
 
 }

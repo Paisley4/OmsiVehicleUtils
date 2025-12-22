@@ -9,6 +9,7 @@ public class Matl {
     private Pair<String, Double> envMap;
     private TripleStruct<String, Integer, String> change;
     private Pair<String, String> freetex;
+    // Remember that they appear only with [matl_item] before
     private String lightMap, nightMap;
     private int textTexture;
     private int alpha;
