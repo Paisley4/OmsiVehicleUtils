@@ -19,6 +19,7 @@ public class MainController {
 
     @FXML private TextField cfgPath;
     @FXML private TextField ctiPath;
+    @FXML private TextField newFileName;
 
     @FXML private Label alertLabel;
 
@@ -29,17 +30,46 @@ public class MainController {
         fc.setInitialDirectory(new File("."));
 
         this.cfgSelectButton.setOnAction(e -> {
-            fc.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Config files (*.cfg)", "*.cfg"));
-            cfgPath.setText(fc.showOpenDialog(null).getAbsolutePath());
+            fc.getExtensionFilters().clear();
+            fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Config files (*.cfg)", "*.cfg"));
+            fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files", "*.*"));
+            File cfgFile = fc.showOpenDialog(null);
+            if(cfgFile == null){
+                return;
+            }
+            if(cfgFile.exists()){
+                fc.setInitialDirectory(cfgFile.getParentFile());
+                cfgPath.setText(fc.showOpenDialog(null).getAbsolutePath());
+            }
         });
         this.ctiSelectButton.setOnAction(e -> {
-            fc.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("CTI files (*.cti)", "*.cti"));
-            ctiPath.setText(fc.showOpenDialog(null).getAbsolutePath());
+            fc.getExtensionFilters().clear();
+            fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("CTI files (*.cti)", "*.cti"));
+            fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files", "*.*"));
+            File ctiFile = fc.showOpenDialog(null);
+            if(ctiFile == null){
+                return;
+            }
+            if(ctiFile.exists()){
+                fc.setInitialDirectory(ctiFile.getParentFile());
+                ctiPath.setText(ctiFile.getAbsolutePath());
+            }
+        });
+
+        this.newFileName.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if(newFileName.getText().isEmpty()){
+                newFileName.setText("output.cfg");
+                return;
+            }
+            if(!newFileName.getText().endsWith(".cfg")){
+                newFileName.setText(newFileName.getText() + ".cfg");
+            }
         });
 
         this.processButton.setOnAction(e -> {
             File cfgFile = new File(cfgPath.getText());
             File ctiFile = new File(ctiPath.getText());
+            File outputFile = new File(cfgFile.getParentFile(), newFileName.getText());
 
             if(!cfgFile.exists()){
                 alertLabel.setText("Config file not found!");
@@ -57,7 +87,7 @@ public class MainController {
             VehicleCTI cti = new VehicleCTI();
             cti.read(ctiFile);
 
-            VehicleUtils.removeUselessMeshes(config, cti);
+            VehicleUtils.removeUselessMeshes(config, cti, outputFile);
             alertLabel.setText("Done!");
         });
     }

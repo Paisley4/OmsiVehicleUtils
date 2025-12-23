@@ -10,7 +10,7 @@ import java.util.List;
 
 public class VehicleUtils {
 
-    public static void removeUselessMeshes(VehicleConfig config, VehicleCTI cti){
+    public static void removeUselessMeshes(VehicleConfig config, VehicleCTI cti, File outputFile){
         List<Mesh> meshesToRemove = new ArrayList<>();
 
         config.getMeshes().forEach(mesh -> {
@@ -32,13 +32,12 @@ public class VehicleUtils {
             }
         });
 
-        File outputFile = new File("output.cfg");
-
         try{
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outputFile), Charset.forName(config.getCoding())));
             for(String line : config.getLines()){
                 writer.write(line + "\n");
             }
+            writer.close();
         }catch (IOException e){
             e.printStackTrace();
         }
