@@ -33,3 +33,9 @@ tasks.test {
 application {
     mainClass.set("pl.paisley4.omsivehicleutils.Main")
 }
+
+tasks.withType<Jar> {
+    manifest {
+        attributes("Main-Class" to application.mainClass)
+    }
+}
