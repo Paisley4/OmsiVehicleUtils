@@ -39,7 +39,7 @@ public class VehicleUtils {
             }
             writer.close();
         }catch (IOException e){
-            e.printStackTrace();
+            OmsiVehicleUtils.getLogger().warning("Failed to write to file: " + outputFile.getAbsolutePath());
         }
     }
 

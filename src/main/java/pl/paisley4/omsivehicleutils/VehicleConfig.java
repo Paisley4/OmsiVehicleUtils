@@ -68,7 +68,7 @@ public class VehicleConfig {
             }
             this.lines.addAll(List.of(encoded));
         }catch (IOException e) {
-            e.printStackTrace();
+            OmsiVehicleUtils.getLogger().warning("Failed to read file: " + path.toAbsolutePath());
         }
 
         this.ctcTextures = ConfigUtils.readCTCTextures(lines);

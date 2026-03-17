@@ -55,7 +55,7 @@ public class VehicleCTI {
             }
             this.lines.addAll(List.of(encoded));
         }catch (IOException e) {
-            e.printStackTrace();
+            OmsiVehicleUtils.getLogger().warning("Failed to read file: " + path.toAbsolutePath());
         }
 
         this.setvars = CTIUtils.readSetvars(lines);

@@ -31,7 +31,7 @@ tasks.test {
 }
 
 application {
-    mainClass.set("pl.paisley4.omsivehicleutils.Main")
+    mainClass.set("pl.paisley4.omsivehicleutils.OmsiVehicleUtils")
 }
 
 tasks.withType<Jar> {
